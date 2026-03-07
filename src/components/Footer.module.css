@@ -1,0 +1,157 @@
+.footer {
+  background: var(--dark-2);
+  border-top: 1px solid var(--border);
+  padding: 60px 48px 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 44px;
+  margin-bottom: 44px;
+}
+
+/* Brand */
+.brand {}
+
+.logoWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 14px;
+}
+
+.logoImg { object-fit: contain; filter: drop-shadow(0 0 6px rgba(42,255,74,0.3)); }
+
+.logoText { display: flex; flex-direction: column; line-height: 1.1; }
+
+.logoName {
+  font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+
+.green { color: var(--green); }
+.red   { color: var(--red);   }
+
+.tagline {
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.about {
+  font-size: 0.82rem;
+  color: var(--steel);
+  line-height: 1.75;
+  max-width: 250px;
+  margin-bottom: 20px;
+}
+
+.social { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.socialBtn {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--steel);
+  font-size: 0.76rem;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.socialBtn:hover {
+  border-color: var(--green);
+  color: var(--green);
+  background: var(--green-glow);
+}
+
+/* Columns */
+.col {}
+
+.colTitle {
+  font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.list {
+  list-style: none;
+}
+
+.list li { margin-bottom: 9px; }
+
+.list li a {
+  font-size: 0.82rem;
+  color: var(--steel);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.list li a:hover { color: var(--green); }
+
+.contactList {
+  list-style: none;
+}
+
+.contactList li { margin-bottom: 10px; }
+
+.contactList li a {
+  font-size: 0.82rem;
+  color: var(--steel);
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+
+.contactList li a:hover { color: var(--green); }
+
+/* Bottom bar */
+.bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.bottom p { font-size: 0.74rem; color: var(--steel); }
+
+.links { display: flex; gap: 20px; }
+
+.links a {
+  font-size: 0.72rem;
+  color: var(--steel);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.links a:hover { color: var(--green); }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .top { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 48px 20px 24px; }
+  .top { grid-template-columns: 1fr; gap: 28px; }
+  .about { max-width: 100%; }
+  .bottom { flex-direction: column; align-items: flex-start; }
+}
