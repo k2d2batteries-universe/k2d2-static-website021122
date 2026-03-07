@@ -1,6 +1,7 @@
 import { Rajdhani, Inter } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${rajdhani.variable}`}>
+        <SpeedInsights/>
         {children}
       </body>
     </html>
