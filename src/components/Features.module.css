@@ -1,6 +1,6 @@
-/* Features.module.css */
+/* ── Features / Why Choose Us ── */
 .section {
-  padding: 88px 48px;
+  padding: 96px 48px;
   background: var(--dark);
   position: relative;
   z-index: 1;
@@ -8,7 +8,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   margin-top: 48px;
 }
@@ -16,55 +16,84 @@
 .item {
   background: var(--dark-2);
   border: 1px solid var(--border);
-  padding: 30px 34px;
+  padding: 32px 30px 36px;
   display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  transition: border-color 0.3s, background 0.3s;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s, transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .item:hover {
-  border-color: rgba(42, 255, 74, 0.35);
   background: var(--dark-3);
+  transform: perspective(700px) translateZ(18px) translateY(-6px);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
+/* Hover border variants — applied per item via nth-child alternating */
+.itemGreen:hover { border-color: rgba(240, 165, 0, 0.4); }
+.itemRed:hover   { border-color: rgba(224, 28, 28, 0.35); }
+
+/* Ghost step number watermark */
+.stepNum {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(240, 165, 0, 0.048);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.03em;
+}
+
+/* Icon box */
 .icon {
   flex-shrink: 0;
-  width: 46px;
-  height: 46px;
-  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   border: 1px solid;
 }
 
 .iconGreen {
-  background: var(--green-glow);
-  border-color: rgba(42, 255, 74, 0.18);
+  background: var(--amber-glow);
+  border-color: rgba(240, 165, 0, 0.2);
 }
 
 .iconRed {
   background: var(--red-dim);
-  border-color: rgba(224, 28, 28, 0.18);
+  border-color: rgba(224, 28, 28, 0.2);
 }
 
 .title {
   font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 7px;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
 }
 
 .desc {
-  font-size: 0.81rem;
+  font-size: 0.82rem;
   color: var(--steel);
-  line-height: 1.68;
+  line-height: 1.7;
 }
 
-@media (max-width: 768px) {
-  .section { padding: 60px 20px; }
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .section { padding: 64px 20px; }
   .grid { grid-template-columns: 1fr; }
 }

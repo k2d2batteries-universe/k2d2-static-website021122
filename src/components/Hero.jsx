@@ -4,12 +4,19 @@ import styles from "./Hero.module.css";
 export default function Hero() {
   return (
     <section className={styles.hero} id="home">
+      <div className={styles.bgGrid} aria-hidden="true" />
+      <div className={styles.bgGlowAmber} aria-hidden="true" />
+      <div className={styles.bgGlowRed} aria-hidden="true" />
+
       {/* Left: text content */}
       <div className={styles.left}>
-        <span className={styles.badge}>
-          <span className={styles.badgeDot} />
-          Chengalpattu&apos;s #1 Battery Store
-        </span>
+        <div className={styles.badgeRow}>
+          <span className={styles.badge}>
+            <span className={styles.badgeDot} />
+            Chengalpattu&apos;s #1 Battery Store
+          </span>
+          <span className={styles.estBadge}>Est. 2025</span>
+        </div>
 
         <h1 className={styles.title}>
           ALL KINDS<br />
@@ -20,8 +27,8 @@ export default function Hero() {
 
         <p className={styles.sub}>
           From automotive to industrial, inverter to UPS — K2D2 stocks every
-          battery you need. Trusted by thousands across Chengalpattu for
-          quality and fast service.
+          battery you need. Trusted across Chengalpattu for genuine products,
+          honest pricing, and fast service.
         </p>
 
         <div className={styles.actions}>
@@ -32,39 +39,49 @@ export default function Hero() {
             ✉ Email Us
           </a>
           <a href="#products" className="btn-outline">
-            View Products
+            View Products →
           </a>
         </div>
 
         <div className={styles.stats}>
           <Stat value="500+" label="Battery Types" />
-          <Stat value="10yr+" label="Experience" />
+          <Stat value="100+" label="Customers Served" />
           <Stat value="24hr" label="Fast Service" />
         </div>
       </div>
 
-      {/* Right: logo visual */}
+      {/* Right: 3D visual panel */}
       <div className={styles.visual}>
-        <Image
-          src="/logo.png"
-          alt="K2D2 Batteries & Motor Pumps"
-          width={400}
-          height={400}
-          className={styles.logoBig}
-          priority
-        />
-        <FloatCard
-          side="left"
-          accent="green"
-          label="In Stock Today"
-          value="500+ Items"
-        />
-        <FloatCard
-          side="right"
-          accent="red"
-          label="Delivery"
-          value="Same Day"
-        />
+        <div className={styles.card3d}>
+          <div className={styles.cardInner}>
+            <Image
+              src="/logo.png"
+              alt="K2D2 Batteries & Motor Pumps"
+              width={300}
+              height={300}
+              className={styles.logoBig}
+              priority
+            />
+          </div>
+          <div className={styles.cardGlow} />
+          <div className={styles.cardReflect} aria-hidden="true" />
+        </div>
+
+        <div className={`${styles.chip} ${styles.chipLeft}`}>
+          <span className={styles.chipDot} />
+          <div>
+            <span className={styles.chipLabel}>In Stock Today</span>
+            <span className={styles.chipValue}>500+ Items</span>
+          </div>
+        </div>
+
+        <div className={`${styles.chip} ${styles.chipRight}`}>
+          <span className={`${styles.chipDot} ${styles.chipDotRed}`} />
+          <div>
+            <span className={styles.chipLabel}>Delivery</span>
+            <span className={styles.chipValue}>Same Day</span>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -75,15 +92,6 @@ function Stat({ value, label }) {
     <div className={styles.statItem}>
       <span className={styles.statVal}>{value}</span>
       <span className={styles.statLbl}>{label}</span>
-    </div>
-  );
-}
-
-function FloatCard({ side, accent, label, value }) {
-  return (
-    <div className={`${styles.floatCard} ${styles[side]} ${styles[`accent_${accent}`]}`}>
-      <span className={styles.fcLabel}>{label}</span>
-      <span className={`${styles.fcVal} ${styles[`fcVal_${accent}`]}`}>{value}</span>
     </div>
   );
 }

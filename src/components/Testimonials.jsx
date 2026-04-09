@@ -24,15 +24,27 @@ const REVIEWS = [
 export default function Testimonials() {
   return (
     <section className={styles.section}>
-      <div className="reveal">
-        <p className="section-label">Customer Reviews</p>
-        <h2 className="section-title">What People Say</h2>
+      <div className={`${styles.headRow} reveal`}>
+        <div>
+          <p className="section-label">Customer Reviews</p>
+          <h2 className="section-title">What People Say</h2>
+        </div>
+        <div className={styles.gBadge}>
+          <span className={styles.gIcon}>G</span>
+          <div>
+            <span className={styles.gStars}>★★★★★</span>
+            <span className={styles.gLabel}>Google Reviews</span>
+          </div>
+        </div>
       </div>
       <div className={styles.grid}>
         {REVIEWS.map((r) => (
           <article key={r.name} className={`${styles.card} reveal`}>
+            <div className={styles.cardTop}>
             <div className={styles.stars}>★★★★★</div>
-            <p className={styles.text}>&ldquo;{r.text}&rdquo;</p>
+            <span className={styles.quoteChar}>&ldquo;</span>
+          </div>
+            <p className={styles.text}>{r.text}&rdquo;</p>
             <div className={styles.author}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={r.avatar} alt={r.name} className={styles.avatar} loading="lazy" />

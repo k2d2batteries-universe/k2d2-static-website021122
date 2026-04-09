@@ -1,0 +1,166 @@
+/* ── How It Works — Bold 3D Steps ── */
+.section {
+  padding: 96px 48px;
+  background: var(--dark-2);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Background large text decoration */
+.section::before {
+  content: "HOW";
+  position: absolute;
+  top: 40px;
+  right: -20px;
+  font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
+  font-size: 18rem;
+  font-weight: 700;
+  color: rgba(240, 165, 0, 0.022);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 56px;
+  position: relative;
+}
+
+/* Connector bar between steps */
+.steps::after {
+  content: "";
+  position: absolute;
+  top: 52px;
+  left: calc(16.5%);
+  right: calc(16.5%);
+  height: 1px;
+  background: linear-gradient(to right, var(--amber), var(--red), var(--amber));
+  opacity: 0.25;
+  z-index: 0;
+}
+
+/* Single step card */
+.step {
+  padding: 36px 32px 40px;
+  background: var(--dark);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.step:hover {
+  transform: perspective(600px) translateZ(16px) translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+.stepGreen { border-bottom: 3px solid var(--amber); }
+.stepRed   { border-bottom: 3px solid var(--red); }
+
+.stepGreen:hover { border-color: var(--amber); box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 4px 20px rgba(240,165,0,0.1); }
+.stepRed:hover   { border-color: var(--red);   box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 4px 20px rgba(224,28,28,0.1); }
+
+/* Ghost large number behind content */
+.stepBgNum {
+  position: absolute;
+  bottom: -10px;
+  right: 8px;
+  font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
+  font-size: 8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(240, 165, 0, 0.04);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+}
+
+.stepRed .stepBgNum { color: rgba(224,28,28,0.04); }
+
+/* Circle badge */
+.numWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid;
+  margin-bottom: 24px;
+  background: var(--dark-2);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 6px var(--dark), 0 0 0 7px var(--border);
+}
+
+.numGreen {
+  border-color: rgba(240, 165, 0, 0.5);
+  box-shadow: 0 0 0 6px var(--dark), 0 0 0 7px rgba(240,165,0,0.12), 0 0 24px rgba(240,165,0,0.1);
+}
+
+.numRed {
+  border-color: rgba(224, 28, 28, 0.5);
+  box-shadow: 0 0 0 6px var(--dark), 0 0 0 7px rgba(224,28,28,0.12), 0 0 24px rgba(224,28,28,0.1);
+}
+
+.num {
+  font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.numGreen .num { color: var(--amber); }
+.numRed   .num { color: var(--red); }
+
+.title {
+  font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.desc {
+  font-size: 0.83rem;
+  color: var(--steel);
+  line-height: 1.72;
+  max-width: 240px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .section { padding: 64px 20px; }
+  .section::before { display: none; }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .steps::after { display: none; }
+
+  .step {
+    align-items: flex-start;
+    text-align: left;
+    padding: 28px 24px 32px;
+  }
+
+  .desc { max-width: 100%; }
+}

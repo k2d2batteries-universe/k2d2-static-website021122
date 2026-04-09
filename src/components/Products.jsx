@@ -9,7 +9,7 @@ const PRODUCTS = [
     name: "Car & Bike Batteries",
     desc: "Exide, Amaron, SF Sonic — all sizes. Guaranteed fitment for every vehicle model.",
     specs: [{ v: "All Brands", l: "Available" }, { v: "Free", l: "Fitment" }],
-    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80",
+    img: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "inverter",
@@ -18,7 +18,7 @@ const PRODUCTS = [
     name: "Inverter & UPS Batteries",
     desc: "Tubular, flat plate, VRLA — all capacities. Home delivery & installation included.",
     specs: [{ v: "100Ah+", l: "Capacities" }, { v: "3–5yr", l: "Warranty" }],
-    img: "https://images.unsplash.com/photo-1605408499391-6368c628ef42?w=600&auto=format&fit=crop&q=80",
+    img: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "motor",
@@ -36,7 +36,7 @@ const PRODUCTS = [
     name: "Solar Batteries",
     desc: "Deep cycle batteries for solar storage. High retention, long cycle life for off-grid systems.",
     specs: [{ v: "Deep Cycle", l: "Type" }, { v: "5yr+", l: "Life" }],
-    img: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&auto=format&fit=crop&q=80",
+    img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "ev",
@@ -45,7 +45,7 @@ const PRODUCTS = [
     name: "E-Bike & E-Rickshaw",
     desc: "Lithium & lead-acid packs for electric two-wheelers, three-wheelers, and light EVs.",
     specs: [{ v: "Li-Ion", l: "Available" }, { v: "Quick", l: "Swap" }],
-    img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&auto=format&fit=crop&q=80",
+    img: "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=600&auto=format&fit=crop&q=80",
   },
   {
     id: "industrial",
@@ -54,7 +54,7 @@ const PRODUCTS = [
     name: "Industrial & VRLA",
     desc: "SMF, VRLA, flooded cell for telecom towers, hospitals, data centers & heavy equipment.",
     specs: [{ v: "VRLA/SMF", l: "Type" }, { v: "Bulk", l: "Orders OK" }],
-    img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&auto=format&fit=crop&q=80",
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80",
   },
 ];
 

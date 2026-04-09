@@ -1,38 +1,43 @@
+/* ── Ad Banner — Diagonal Split ── */
 .banner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 340px;
+  min-height: 360px;
   overflow: hidden;
-  background: linear-gradient(135deg, #040c04 0%, #0d1a0d 100%);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   position: relative;
   z-index: 1;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-.banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    -45deg, transparent, transparent 50px,
-    rgba(42,255,74,0.018) 50px, rgba(42,255,74,0.018) 51px
-  );
-}
-
+/* Content side — dark */
 .content {
-  padding: 52px 48px;
+  padding: 56px 52px 56px 56px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  background: var(--dark);
+}
+
+/* Diagonal edge on content side */
+.content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 100px;
+  height: 100%;
+  background: var(--dark);
+  clip-path: polygon(0 0, 50% 0, 100% 100%, 0 100%);
+  z-index: 3;
 }
 
 .eyebrow {
   color: var(--red);
-  font-size: 0.64rem;
-  letter-spacing: 0.2em;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 600;
   margin-bottom: 14px;
@@ -46,53 +51,82 @@
   width: 16px;
   height: 2px;
   background: var(--red);
+  flex-shrink: 0;
 }
 
 .title {
   font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
   font-size: clamp(2rem, 3.5vw, 3.5rem);
   font-weight: 700;
-  line-height: 1.02;
+  line-height: 1.0;
   text-transform: uppercase;
+  color: var(--white);
 }
 
-.title span { color: var(--green); }
+.title span { color: var(--amber); }
 
 .sub {
-  margin-top: 16px;
+  margin-top: 18px;
   color: var(--steel);
-  font-size: 0.9rem;
-  line-height: 1.7;
-  max-width: 400px;
+  font-size: 0.88rem;
+  line-height: 1.72;
+  max-width: 380px;
 }
 
 .actions {
   display: flex;
   gap: 12px;
-  margin-top: 26px;
+  margin-top: 28px;
   flex-wrap: wrap;
 }
 
+/* Visual side — amber tinted */
 .visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px;
-  background: var(--dark-3);
+  padding: 40px 40px 40px 80px;
+  background: var(--dark-2);
   position: relative;
   z-index: 1;
 }
 
+/* Ambient amber glow in visual side */
+.visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(240,165,0,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Diagonal stripes */
+.visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 60px,
+    rgba(240,165,0,0.018) 60px,
+    rgba(240,165,0,0.018) 61px
+  );
+  pointer-events: none;
+}
+
 .logo {
-  filter: drop-shadow(0 0 28px rgba(42,255,74,0.32));
+  filter: drop-shadow(0 0 28px rgba(240,165,0,0.35)) drop-shadow(0 0 60px rgba(240,165,0,0.12));
   object-fit: contain;
+  position: relative;
+  z-index: 2;
 }
 
 /* ── Responsive ── */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .banner { grid-template-columns: 1fr; }
-  .content { padding: 36px 24px; }
-  .visual { padding: 24px; }
+  .content { padding: 40px 28px; }
+  .content::after { display: none; }
+  .visual { padding: 28px; }
   .logo { width: 180px !important; height: 180px !important; }
-  .actions { flex-wrap: wrap; }
 }

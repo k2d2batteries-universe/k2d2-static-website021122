@@ -47,17 +47,19 @@ export default function Features() {
         <h2 className="section-title">The K2D2 Advantage</h2>
       </div>
       <div className={styles.grid}>
-        {FEATURES.map((f) => (
-          <FeatureItem key={f.title} {...f} />
+        {FEATURES.map((f, i) => (
+          <FeatureItem key={f.title} index={i} {...f} />
         ))}
       </div>
     </section>
   );
 }
 
-function FeatureItem({ icon, variant, title, desc }) {
+function FeatureItem({ icon, variant, title, desc, index }) {
+  const stepNum = String(index + 1).padStart(2, "0");
   return (
-    <div className={`${styles.item} reveal`}>
+    <div className={`${styles.item} ${variant === "red" ? styles.itemRed : styles.itemGreen} reveal`}>
+      <span className={styles.stepNum} aria-hidden="true">{stepNum}</span>
       <div className={`${styles.icon} ${variant === "red" ? styles.iconRed : styles.iconGreen}`}>
         {icon}
       </div>

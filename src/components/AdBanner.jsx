@@ -6,15 +6,16 @@ export default function AdBanner() {
   return (
     <div className={styles.banner}>
       <div className={styles.content}>
-        <p className={styles.eyebrow}>Limited Time Offer</p>
+        <p className={styles.eyebrow}>Walk In or Call Anytime</p>
         <h2 className={styles.title}>
           OLD BATTERY?<br />
-          GET <span>FREE CHECK</span><br />
-          + BEST PRICE
+          GET A <span>FREE TEST</span><br />
+          + TOP EXCHANGE VALUE
         </h2>
         <p className={styles.sub}>
-          Bring your old battery — we test for free, give the best exchange
-          value in Chengalpattu, and fit the new one at no extra charge.
+          Bring in your old battery — we test it for free, offer the highest
+          exchange value in Chengalpattu, and fit your new battery at no extra
+          charge. No pressure, no hidden fees.
         </p>
         <div className={styles.actions}>
           <a href="tel:+917200025072" className="btn-green">📞 Call Now</a>

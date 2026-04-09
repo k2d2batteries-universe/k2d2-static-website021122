@@ -1,0 +1,133 @@
+/* ── Brands — Infinite Marquee ── */
+.section {
+  padding: 72px 0 64px;
+  background: var(--dark-2);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0 48px;
+  margin-bottom: 40px;
+}
+
+.tagline {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 2px;
+  align-self: flex-end;
+  margin-bottom: 4px;
+}
+
+/* Track: clips overflow and fades edges */
+.track {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* Marquee strip — tripled for seamless loop */
+.marquee {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: brand-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes brand-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+/* Individual brand card */
+.card {
+  flex-shrink: 0;
+  width: 220px;
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cardGreen:hover {
+  border-color: rgba(240, 165, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(240, 165, 0, 0.08);
+}
+
+.cardAmber:hover {
+  border-color: rgba(224, 28, 28, 0.3);
+  box-shadow: 0 8px 32px rgba(224, 28, 28, 0.06);
+}
+
+.brandName {
+  font-family: var(--font-rajdhani), "Rajdhani", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.brandNote {
+  font-size: 0.6rem;
+  color: var(--steel);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.pill {
+  margin-top: 10px;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  border: 1px solid rgba(240, 165, 0, 0.25);
+  background: rgba(240, 165, 0, 0.06);
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .header { padding: 0 20px; }
+}

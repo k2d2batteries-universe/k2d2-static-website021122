@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Header.module.css";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
   { label: "Products",  href: "#products" },
@@ -63,22 +64,26 @@ export default function Header() {
             {l.label}
           </Link>
         ))}
+        <ThemeToggle />
         <a href="tel:+917200025072" className={styles.navCta}>
           📞 Call Now
         </a>
       </nav>
 
-      {/* Hamburger */}
-      <button
-        className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`}
-        onClick={() => setMenuOpen((v) => !v)}
-        aria-label="Toggle menu"
-        aria-expanded={menuOpen}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
+      {/* Mobile theme toggle + hamburger */}
+      <div className={styles.mobileActions}>
+        <ThemeToggle />
+        <button
+          className={`${styles.hamburger} ${menuOpen ? styles.open : ""}`}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
 
       {/* Mobile drawer */}
       <nav

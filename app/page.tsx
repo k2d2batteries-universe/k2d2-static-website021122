@@ -1,13 +1,16 @@
 import Header from "@/src/components/Header";
 import Hero from "@/src/components/Hero";
 import Ticker from "@/src/components/Ticker";
+import HowItWorks from "@/src/components/HowItWorks";
+import Brands from "@/src/components/Brands";
 import Products from "@/src/components/Products";
-import AdBanner from "@/src/components/AdBanner";
 import Features from "@/src/components/Features";
-import Contact from "@/src/components/Contact";
+import AdBanner from "@/src/components/AdBanner";
 import Testimonials from "@/src/components/Testimonials";
+import Contact from "@/src/components/Contact";
 import Footer from "@/src/components/Footer";
 import ScrollReveal from "@/src/components/ScrollReveal";
+import FloatingCTA from "@/src/components/FloatingCTA";
 
 export default function Home() {
   return (
@@ -16,15 +19,17 @@ export default function Home() {
       <main>
         <Hero />
         <Ticker />
+        <HowItWorks />
+        <Brands />
         <Products />
-        <AdBanner />
         <Features />
-        <Contact />
+        <AdBanner />
         <Testimonials />
+        <Contact />
       </main>
       <Footer />
-      {/* Client-side scroll reveal — runs after hydration */}
       <ScrollReveal />
+      <FloatingCTA />
     </>
   );
 }

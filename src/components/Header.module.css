@@ -7,7 +7,7 @@
   justify-content: space-between;
   padding: 0 48px;
   height: 74px;
-  background: rgba(7, 14, 7, 0.92);
+  background: var(--header-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: height 0.3s ease, background 0.3s ease;
@@ -15,7 +15,7 @@
 
 .scrolled {
   height: 64px;
-  background: rgba(7, 14, 7, 0.98);
+  background: var(--header-bg-scrolled);
 }
 
 /* ── Logo ── */
@@ -29,7 +29,7 @@
 
 .logoImg {
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(42, 255, 74, 0.4));
+  filter: drop-shadow(0 0 8px rgba(240, 165, 0, 0.45));
 }
 
 .logoText {
@@ -89,13 +89,20 @@
 }
 
 .navCta:hover {
-  box-shadow: 0 0 20px rgba(42, 255, 74, 0.4);
+  box-shadow: 0 0 20px var(--amber-dim);
   transform: translateY(-1px);
+}
+
+/* ── Mobile actions (theme toggle + hamburger) ── */
+.mobileActions {
+  display: none;
+  align-items: center;
+  gap: 8px;
 }
 
 /* ── Hamburger ── */
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
@@ -124,7 +131,7 @@
   position: fixed;
   top: 74px;
   left: 0; right: 0;
-  background: rgba(7, 14, 7, 0.98);
+  background: var(--mobile-nav-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   flex-direction: column;
@@ -173,6 +180,6 @@
 @media (max-width: 768px) {
   .header { padding: 0 20px; }
   .desktopNav { display: none; }
-  .hamburger { display: flex; }
+  .mobileActions { display: flex; }
   .mobileNav { display: flex; }
 }

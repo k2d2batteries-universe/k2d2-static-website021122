@@ -1,22 +1,59 @@
-/* ── K2D2 Global Styles ── */
+/* ── K2D2 Global Styles — Amber Dark Theme ── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* ── Dark Mode (default) ── */
 :root {
-  --dark:        #070e07;
-  --dark-2:      #0d1a0d;
-  --dark-3:      #112411;
-  --border:      #1e3a1e;
-  --green:       #2aff4a;
-  --green-dim:   rgba(42, 255, 74, 0.15);
-  --green-glow:  rgba(42, 255, 74, 0.08);
+  --dark:        #0a0a0a;
+  --dark-2:      #141414;
+  --dark-3:      #1a1714;
+  --border:      #2a2520;
+  --amber:       #f0a500;
+  --amber-dim:   rgba(240, 165, 0, 0.15);
+  --amber-glow:  rgba(240, 165, 0, 0.08);
+
+  /* kept for backward compat — map to amber */
+  --green:       #f0a500;
+  --green-dim:   rgba(240, 165, 0, 0.15);
+  --green-glow:  rgba(240, 165, 0, 0.08);
+
   --red:         #e01c1c;
   --red-dim:     rgba(224, 28, 28, 0.15);
-  --steel:       #6a8a6a;
-  --white:       #eef4ee;
+  --steel:       #7a736a;
+  --white:       #edeae4;
+
+  /* header backgrounds */
+  --header-bg:         rgba(10, 10, 10, 0.92);
+  --header-bg-scrolled: rgba(10, 10, 10, 0.98);
+  --mobile-nav-bg:     rgba(10, 10, 10, 0.98);
+}
+
+/* ── Light Mode ── */
+[data-theme="light"] {
+  --dark:        #faf8f3;
+  --dark-2:      #f0ebe1;
+  --dark-3:      #e8e0d0;
+  --border:      #d5cabb;
+
+  --amber:       #b07210;
+  --amber-dim:   rgba(176, 114, 16, 0.12);
+  --amber-glow:  rgba(176, 114, 16, 0.07);
+
+  --green:       #b07210;
+  --green-dim:   rgba(176, 114, 16, 0.12);
+  --green-glow:  rgba(176, 114, 16, 0.07);
+
+  --red:         #c41515;
+  --red-dim:     rgba(196, 21, 21, 0.12);
+  --steel:       #6b5f52;
+  --white:       #1a1410;
+
+  --header-bg:         rgba(250, 248, 243, 0.92);
+  --header-bg-scrolled: rgba(250, 248, 243, 0.98);
+  --mobile-nav-bg:     rgba(250, 248, 243, 0.98);
 }
 
 html {
@@ -29,6 +66,26 @@ body {
   font-family: var(--font-inter), "Inter", sans-serif;
   font-weight: 300;
   overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* Smooth theme transitions on all elements */
+*, *::before, *::after {
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Override transition for interactive elements to stay snappy */
+a, button, .btn-green, .btn-red, .btn-outline {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease !important;
 }
 
 /* Circuit grid background */
@@ -37,11 +94,18 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(42, 255, 74, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(42, 255, 74, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(240, 165, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240, 165, 0, 0.025) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
   z-index: 0;
+  transition: opacity 0.35s ease;
+}
+
+[data-theme="light"] body::before {
+  background-image:
+    linear-gradient(rgba(176, 114, 16, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176, 114, 16, 0.06) 1px, transparent 1px);
 }
 
 /* ── Shared Button Styles ── */
@@ -59,17 +123,16 @@ body::before {
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: box-shadow 0.2s, transform 0.15s;
 }
 
 .btn-green:hover {
-  box-shadow: 0 10px 32px rgba(42, 255, 74, 0.35);
+  box-shadow: 0 10px 32px rgba(240, 165, 0, 0.35);
   transform: translateY(-2px);
 }
 
 .btn-red {
   background: var(--red);
-  color: var(--white);
+  color: #fff;
   font-weight: 700;
   font-size: 0.82rem;
   letter-spacing: 0.08em;
@@ -81,7 +144,6 @@ body::before {
   border: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: box-shadow 0.2s, transform 0.15s;
 }
 
 .btn-red:hover {
@@ -103,7 +165,6 @@ body::before {
   background: transparent;
   cursor: pointer;
   white-space: nowrap;
-  transition: border-color 0.2s, color 0.2s;
 }
 
 .btn-outline:hover {
@@ -171,10 +232,10 @@ body::before {
 
 @keyframes pulse-glow {
   0%, 100% {
-    filter: drop-shadow(0 0 30px rgba(42,255,74,0.3)) drop-shadow(0 0 60px rgba(42,255,74,0.1));
+    filter: drop-shadow(0 0 30px rgba(240,165,0,0.3)) drop-shadow(0 0 60px rgba(240,165,0,0.1));
   }
   50% {
-    filter: drop-shadow(0 0 55px rgba(42,255,74,0.5)) drop-shadow(0 0 100px rgba(42,255,74,0.2));
+    filter: drop-shadow(0 0 55px rgba(240,165,0,0.5)) drop-shadow(0 0 100px rgba(240,165,0,0.2));
   }
 }
 
